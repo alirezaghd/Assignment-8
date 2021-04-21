@@ -27,13 +27,17 @@ class Complex():
         return result
 
     def div(self , other):
-        result = Complex(None/None)
+        result = Complex(None,None)
 
-        result.s = (self.s + other.s * self.m - other.m) / (other.s ** 2 + other.m ** 2)
-        result.m = (self.m + other.m * self.m - other.m) / (other.s ** 2 + other.m ** 2)
+        result.s = self.s * other.s + self.m  * other.m 
+        result.m = self.m * other.s - self.s  * other.m 
+        z = other.s ** 2 + other.m ** 2
+        s = result.s / z
+        m = result.m / z
         return result
 
-    #a+bi/c+di = a+bi/c+di⋅c−di/c−di =ac+bd / c2+d2 + bc−ad /c2+d2i
+
+    #a+bi/c+di = a+bi/c+di⋅c−di/c−di =   ac+bd / c2+d2 + bc−ad /c2+d2i
 
 
     def show(self):
